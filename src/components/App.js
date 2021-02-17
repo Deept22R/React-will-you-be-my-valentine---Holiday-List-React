@@ -37,10 +37,24 @@ class App extends Component {
     ]
   }
 
+  listOfIndianCities = () =>{
+    let indianCities = [];
+    this.cityList.forEach((loc)=>{
+      // console.log(loc.country);
+      if(loc.country==='India')
+        indianCities.push(loc.name);
+    });
+    return indianCities.map((city,index)=>{
+      return (<li key={'location'+(index+1)}>{city}</li>)
+    });
+  }
+
   render() {
     return (
       <div id="main">
-        {/* Do not remove the main div */}
+        <ol>
+          {this.listOfIndianCities()}
+        </ol>
       </div>
     )
   }
